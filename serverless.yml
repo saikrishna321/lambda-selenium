@@ -1,0 +1,29 @@
+AWSTemplateFormatVersion : '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: Selenium webdriver tests.
+
+service: SeleniumTest
+
+provider:
+  name: aws
+  runtime: nodejs8.10
+  stage: Test-1
+
+functions:
+  Selenium:
+    handler: index.handler
+
+Resources:
+  Selenium:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: index.handler
+      Runtime: nodejs8.10
+      Timeout: 300
+
+      Events:
+        ListProducts:
+          Type: Api
+          Properties:
+            Path: /execute
+            Method: get
