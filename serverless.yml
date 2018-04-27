@@ -7,23 +7,12 @@ service: SeleniumTest
 provider:
   name: aws
   runtime: nodejs8.10
-  stage: Test-1
+  stage: WDTest
 
 functions:
   Selenium:
-    handler: index.handler
-
-Resources:
-  Selenium:
-    Type: AWS::Serverless::Function
-    Properties:
-      Handler: index.handler
-      Runtime: nodejs8.10
-      Timeout: 300
-
-      Events:
-        ListProducts:
-          Type: Api
-          Properties:
-            Path: /execute
-            Method: get
+    handler: index.executeTest
+    events:
+      - http:
+          path: runScript
+          method: get

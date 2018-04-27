@@ -3,11 +3,10 @@ var Mocha = require('mocha'),
     fs = require('fs'),
     path = require('path');
 
-exports.handler = (event,context,callback) => {
+exports.executeTest = async (event,context,callback) => {
     let testUrl; 
     testUrl = getTestUrl(event, testUrl);
     var mocha = new Mocha();
-    
     process.env['baseUrl'] = testUrl;
     runMochaTests(mocha);
     callback(null, {
