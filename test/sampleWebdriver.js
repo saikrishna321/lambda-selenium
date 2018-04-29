@@ -10,7 +10,7 @@ describe("Sample Webdriver test", function() {
   });
 
   it("Failing Test", function() {
-    assert.typeOf(a, "string");
+    assert.typeOf(1, "string");
   });
 });
 
