@@ -7,13 +7,13 @@ provider:
 
 functions:
   Selenium:
-    handler: index.handler
+    handler: index.executeTest
 
 Resources:
   Selenium:
     Type: AWS::Serverless::Function
     Properties:
-      Handler: index.handler
+      Handler: index.executeTest
       Runtime: nodejs8.10
       Timeout: 300
 

@@ -39,5 +39,6 @@ async function example(event) {
   var driver = chrome.Driver.createSession(chromeOptions, service);
     await driver.get(event);
     let url = await driver.getTitle();
-    return await url;
+    console.log("Cuurent Page URL" + url);
+    driver.quit();
 }
