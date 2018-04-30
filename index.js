@@ -11,7 +11,11 @@ async function runMochaTests() {
   var Mocha = require("mocha"),
   fs = require("fs"),
   path = require("path");
-  var mocha = new Mocha();
+  var mocha = new Mocha({
+    reportDir: "/tmp",
+    reporter: 'mochawesome'
+    
+  });
   var testDir = "./test/";
   fs
     .readdirSync(testDir)
