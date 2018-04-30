@@ -12,9 +12,10 @@ async function runMochaTests() {
   fs = require("fs"),
   path = require("path");
   var mocha = new Mocha({
-    reportDir: "/tmp",
-    reporter: 'mochawesome'
-    
+    reporter: 'mochawesome',
+    reporterOptions: {
+      reportDir: '/tmp'
+    }
   });
   var testDir = "./test/";
   fs
