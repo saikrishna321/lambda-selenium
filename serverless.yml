@@ -16,6 +16,3 @@ functions:
       - http:
           path: runScript
           method: get
-
-  Hello:
-    handler: index.sample
