@@ -1,10 +1,10 @@
-export function executeTest(event, context, callback) {
+exports.executeTest = (event, context, callback) => {
   let testUrl;
   testUrl = getTestUrl(event, testUrl);
   process.env["baseUrl"] = testUrl;
   runMochaTests();
   callback(null, { body: "Execution completed..." });
-}
+};
 
 async function runMochaTests() {
   var Mocha = require("mocha"),
