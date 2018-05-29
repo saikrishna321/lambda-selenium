@@ -1,20 +1,19 @@
-exports.executeTest = (event, context, callback) => {
+export function executeTest(event, context, callback) {
   let testUrl;
   testUrl = getTestUrl(event, testUrl);
   process.env["baseUrl"] = testUrl;
   runMochaTests();
-  callback(null,{body:"Execution completed..."})
-};
+  callback(null, { body: "Execution completed..." });
+}
 
 async function runMochaTests() {
-  console.log("Inside running test...")
   var Mocha = require("mocha"),
-  fs = require("fs"),
-  path = require("path");
+    fs = require("fs"),
+    path = require("path");
   var mocha = new Mocha({
-    reporter: 'mochawesome',
+    reporter: "mochawesome",
     reporterOptions: {
-      reportDir: '/tmp'
+      reportDir: "/tmp"
     }
   });
   var testDir = "./test/";
@@ -28,7 +27,6 @@ async function runMochaTests() {
     });
   await mocha.run();
   delete require.cache[require.resolve("./test/sampleWebdriver.js")];
-  console.log("Outside run method test...")
 }
 
 function getTestUrl(event, testUrl) {

@@ -4,17 +4,26 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "compile": "",
+    "test": "mocha test --compilers js:babel-core/register"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "aws-sdk": "^2.7.20",
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-polyfill": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
     "chai": "^4.1.2",
-    "mocha": "^5.1.1",
-    "aws-sdk": "^2.227.1",
     "chromeless": "^1.5.1",
+    "extract-zip": "^1.6.7",
     "lambda-tester": "^3.4.0",
+    "mocha": "^5.1.1",
+    "mochawesome": "3.0.2",
+    "s3-folder-upload": "0.0.14",
     "selenium-webdriver": "^4.0.0-alpha.1",
-    "mochawesome":"3.0.2"
+    "babel-core": "^6.26.3",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-register": "^6.26.0"
   }
 }
